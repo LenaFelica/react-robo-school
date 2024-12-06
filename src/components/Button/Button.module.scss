@@ -1,41 +1,41 @@
-@use "src/styles/variables.scss" as *;
+@use 'src/styles/variables.scss' as *;
 
 .button {
-   border: none;
-   display: inline-flex;
-   justify-content: center;
-   align-items: center;
-   padding: 25px 54px;
-   cursor: pointer;
-   font-size: 18px;
-   background-color: $bg-color-tertiary;
-   border-radius: 5px;
-   color: $text-color-secondary;
-   transition: background-color 0.3s ease;
- 
-   &:hover{
-     background-color: $accent-color-hover;
-   }
- }
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 54px;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: $bg-color-tertiary;
+  border-radius: 5px;
+  color: $text-color-secondary;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $accent-color-hover;
+  }
+}
 
 .link {
-   color: $text-color-tertiary;
-   background-color: unset;
-   padding: unset;
-   font-size: 18px;
-   margin-top: 20px;
+  color: $text-color-tertiary;
+  background-color: unset;
+  padding: unset;
+  font-size: 18px;
+  margin-top: 20px;
 
-   &:hover {
-      color: $accent-color-hover;
-   }
- }
- 
+  &:hover {
+    color: $accent-color-hover;
+  }
+}
+
 .dark {
-   background-color: $bg-color-primary;
-   line-height: 26px;
- 
-   &:hover {
-     background-color: $button-color-secondary-hover;
-     color: $text-color-primary-70;
-   }
- }
+  background-color: $bg-color-primary;
+  line-height: 26px;
+
+  &:hover {
+    background-color: $button-color-secondary-hover;
+    color: $text-color-primary-70;
+  }
+}

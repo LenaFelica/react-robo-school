@@ -9,18 +9,15 @@ export const MainPage = () => {
       <TeachersBlock />
       <PackageBlock />
       <CourseBlock /> */}
-      <p>
-         something
-      </p>
-      <a 
-         className="App-link"
-         href="https://reactjs.org"
-         target="_blank"
-         rel="noopener noreferrer"
+      <p>something</p>
+      <a
+        className="App-link"
+        href="https://reactjs.org"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-         React
+        React
       </a>
     </div>
   );
 };
-

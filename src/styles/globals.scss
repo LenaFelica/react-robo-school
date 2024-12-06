@@ -1,23 +1,23 @@
-@use "src/styles/variables" as *;
+@use 'src/styles/variables' as *;
 
 html {
-   scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-body{
-   min-width: 320px;
-   min-height: 100dvh;
-   margin: 0;
-   font-family: "Jost", sans-serif;
-   font-weight: 400;
-   line-height: 1.6;
-   color: $primary-color;
+body {
+  min-width: 320px;
+  min-height: 100dvh;
+  margin: 0;
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $primary-color;
 
-   .lock {
-     overflow: hidden;
-   }
+  .lock {
+    overflow: hidden;
+  }
 }
 
 section {
-   padding: 120px 0;
+  padding: 120px 0;
 }
