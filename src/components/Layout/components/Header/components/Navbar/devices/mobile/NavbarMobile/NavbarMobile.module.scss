@@ -1,0 +1,39 @@
+@use 'src/styles/variables.scss' as *;
+
+.navbarMobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100dvh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  overflow-y: hidden;
+  padding: 15px;
+  background-color: $bg-color-primary;
+  color: $text-color-secondary;
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .closeBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+  }
+}
