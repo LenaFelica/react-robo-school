@@ -1,7 +1,31 @@
 import React from 'react';
 
-import styles from './AboutBlock.module.scss';
 import { Container } from 'components/Container';
+
+import styles from './AboutBlock.module.scss';
+
+const aboutItems = [
+  {
+    id: 1,
+    count: 10,
+    description: 'УМК по различным направлениям по робототехнике',
+  },
+  {
+    id: 2,
+    count: 20,
+    description: 'Школ, в которых запущена робототехника',
+  },
+  {
+    id: 3,
+    count: 100,
+    description: 'Педагогов прошедших курсы повышения квалификации',
+  },
+  {
+    id: 4,
+    count: 10000,
+    description: 'Обученных детей на базе собственных центров',
+  },
+];
 
 export const AboutBlock = () => {
   return (
@@ -13,30 +37,12 @@ export const AboutBlock = () => {
             педагогического резерва в сфере робототехники и программирования
           </p>
           <div className={styles.items}>
-            <div className={styles.item}>
-              <span className={styles.number}>10</span>
-              <span className={styles.description}>
-                УМК по различным направлениям по робототехнике
-              </span>
-            </div>
-            <div className={styles.item}>
-              <span className={styles.number}>20</span>
-              <span className={styles.description}>
-                Школ, в которых запущена робототехника
-              </span>
-            </div>
-            <div className={styles.item}>
-              <span className={styles.number}>100</span>
-              <span className={styles.description}>
-                Педагогов прошедших курсы повышения квалификации
-              </span>
-            </div>
-            <div className={styles.item}>
-              <span className={styles.number}>10 000</span>
-              <span className={styles.description}>
-                Обученных детей на базе собственных центров
-              </span>
-            </div>
+            {aboutItems.map((item) => (
+              <div key={item.id} className={styles.item}>
+                <span className={styles.number}>{item.count}</span>
+                <span className={styles.description}>{item.description}</span>
+              </div>
+            ))}
           </div>
         </div>
       </Container>
