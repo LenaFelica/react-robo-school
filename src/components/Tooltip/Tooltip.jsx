@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { TooltipIcon } from 'assets/icons';
 
 import styles from './Tooltip.module.scss';

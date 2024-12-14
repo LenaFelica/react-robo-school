@@ -6,36 +6,36 @@
    bottom: 8px;
    cursor: help;
    padding-top: 8px;
-}
 
-.icon {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 24px;
-   height: 24px;
-   border-radius: 50%;
-   background-color: $icon-bg-color;
-}
+   .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: $icon-bg-color;
+   }
 
-.text {
-   position: absolute;
-   font-size: 16px;
-   font-weight: 400;
-   bottom: 100%;
-   background-color: $bg-color-white;
-   padding: 15px 20px;
-   width: 255px;
-   height: 55px;
-   border-radius: 10px;
-   color: $text-color-primary;
-   box-shadow: 0px 2px 8px 0px $shadow-tooltip-box;
-   display: none;
-}
+   .text {
+      position: absolute;
+      font-size: 16px;
+      font-weight: 400;
+      bottom: 100%;
+      background-color: $bg-color-white;
+      padding: 15px 20px;
+      width: 255px;
+      height: 55px;
+      border-radius: 10px;
+      color: $text-color-primary;
+      box-shadow: 0px 2px 8px 0px $shadow-tooltip-box;
+      display: none;
+   }
 
-.tooltip:hover .text {
-   color: $text-color-primary-70;
-   display: block;
+   &:hover .text {
+      color: $text-color-primary-70;
+      display: block;
+   }
 }
 
 @media (max-width: 768px) {

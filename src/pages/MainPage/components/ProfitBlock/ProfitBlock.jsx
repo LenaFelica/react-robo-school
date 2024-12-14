@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Container } from 'components/Container';
 import { Tooltip } from 'components/Tooltip';
-import { CustomIcon } from 'assets/icons';
 
 import styles from './ProfitBlock.module.scss';
 
@@ -39,9 +38,7 @@ export const ProfitBlock = () => {
               <div key={item.id} className={styles.item}>
                 <h3 className={styles.subtitle}>
                   {item.subtitle}
-                  {item.tooltip && (
-                    <Tooltip text={item.tooltip} icon={CustomIcon} />
-                  )}
+                  {item.tooltip && <Tooltip text={item.tooltip} />}
                 </h3>
                 <p className={styles.description}>{item.description}</p>
               </div>
