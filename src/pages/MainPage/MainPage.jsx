@@ -2,14 +2,15 @@ import React from 'react';
 
 import { PromoBlock } from './components/PromoBlock/PromoBlock';
 import { AboutBlock } from './components/AboutBlock';
+import { ProfitBlock } from './components/ProfitBlock';
 
 export const MainPage = () => {
   return (
     <>
       <PromoBlock />
       <AboutBlock />
-      {/* <ProfitBlock />
-      <TeachersBlock />
+      <ProfitBlock />
+      {/* <TeachersBlock />
       <PackageBlock />
       <CourseBlock /> */}
       <p>something</p>
