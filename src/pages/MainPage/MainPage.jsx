@@ -3,6 +3,7 @@ import React from 'react';
 import { PromoBlock } from './components/PromoBlock/PromoBlock';
 import { AboutBlock } from './components/AboutBlock';
 import { ProfitBlock } from './components/ProfitBlock';
+import { TeachersBlock } from './components/TeachersBlock';
 
 export const MainPage = () => {
   return (
@@ -10,8 +11,8 @@ export const MainPage = () => {
       <PromoBlock />
       <AboutBlock />
       <ProfitBlock />
-      {/* <TeachersBlock />
-      <PackageBlock />
+      <TeachersBlock />
+      {/* <PackageBlock />
       <CourseBlock /> */}
       <p>something</p>
       <a
