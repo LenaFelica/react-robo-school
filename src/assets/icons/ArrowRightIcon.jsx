@@ -11,8 +11,8 @@ export const ArrowRightIcon = () => {
     >
       <g filter="url(#filter0_d_69401_3)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M38.6668 18C38.6668 27.2 31.1835 34.6666 22.0002 34.6666L21.5339 34.6602C12.5492 34.413 5.3335 27.044 5.3335 18C5.3335 8.81665 12.8002 1.33331 22.0002 1.33331C31.1835 1.33331 38.6668 8.81665 38.6668 18ZM18.7002 11.3333C18.2168 11.8333 18.2168 12.6166 18.7168 13.1L23.6335 18L18.7168 22.9C18.2168 23.3833 18.2168 24.1833 18.7002 24.6666C19.2002 25.1666 19.9835 25.1666 20.4668 24.6666L26.2835 18.8833C26.5168 18.65 26.6502 18.3333 26.6502 18C26.6502 17.6666 26.5168 17.35 26.2835 17.1166L20.4668 11.3333C20.2335 11.0833 19.9168 10.9666 19.6002 10.9666C19.2668 10.9666 18.9502 11.0833 18.7002 11.3333Z"
           fill="#141024"
         />
@@ -29,9 +29,9 @@ export const ArrowRightIcon = () => {
           width="42.3333"
           height="42.3333"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

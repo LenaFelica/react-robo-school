@@ -1,7 +1,8 @@
+// src/teachers/TeachersBlock.jsx
 import React, { useEffect, useRef, useState } from 'react';
-
 import { Container } from 'components/Container';
-import { Button } from 'components/Button';
+import { TeacherItem } from './components/TeacherItem';
+import { Controls } from './components/Controls';
 
 import teachers from 'api/teachers.json';
 
@@ -10,8 +11,6 @@ import marina from 'assets/images/marina.png';
 import maxim from 'assets/images/maxim.png';
 import konstantin from 'assets/images/konstantin.png';
 import lisa from 'assets/images/lisa.png';
-import { ArrowLeftIcon } from 'assets/icons/ArrowLeftIcon';
-import { ArrowRightIcon } from 'assets/icons/ArrowRightIcon';
 
 import styles from './TeachersBlock.module.scss';
 
@@ -35,15 +34,13 @@ export const TeachersBlock = () => {
   const updateSlider = () => {
     if (!sliderRef.current || !scrollbarRef.current) return;
 
-    if (sliderRef.current && thumbRef.current && scrollbarRef.current) {
-      const sliderWidth = sliderRef.current.clientWidth;
-      const sliderScrollWidth = sliderRef.current.scrollWidth;
+    const sliderWidth = sliderRef.current.clientWidth;
+    const sliderScrollWidth = sliderRef.current.scrollWidth;
 
-      setSliderMaxScrollLeft(sliderScrollWidth - sliderWidth);
+    setSliderMaxScrollLeft(sliderScrollWidth - sliderWidth);
 
-      const newThumbWidth = (sliderWidth / sliderScrollWidth) * 100;
-      setThumbWidth(newThumbWidth);
-    }
+    const newThumbWidth = (sliderWidth / sliderScrollWidth) * 100;
+    setThumbWidth(newThumbWidth);
   };
 
   const handleSliderScroll = () => {
@@ -138,48 +135,20 @@ export const TeachersBlock = () => {
           <h2 className={styles.title}>Профессиональные тренеры</h2>
           <div className={styles.list} ref={sliderRef}>
             {teachers.map((teacher) => (
-              <div className={styles.item} key={teacher.id}>
-                <img
-                  className={styles.img}
-                  src={imagesMap[teacher.alt]}
-                  alt={teacher.name}
-                />
-                <div className={styles.text}>
-                  <div className={styles.name}>{teacher.name}</div>
-                  <div className={styles.description}>{teacher.desc}</div>
-                  <Button className={styles.btn} variant="link">
-                    Подробнее
-                  </Button>
-                </div>
-              </div>
+              <TeacherItem
+                key={teacher.id}
+                teacher={teacher}
+                imagesMap={imagesMap}
+              />
             ))}
           </div>
-          <div className={styles.controls}>
-            <div className={styles.scrollbar} ref={scrollbarRef}>
-              <div
-                className={styles.thumb}
-                ref={thumbRef}
-                style={{
-                  left: `${thumbPosition}px`,
-                  width: `${thumbWidth}%`,
-                }}
-              ></div>
-            </div>
-            <div className={styles.nav}>
-              <button
-                className={styles.btn}
-                onClick={() => handleArrowClick('left')}
-              >
-                <ArrowLeftIcon />
-              </button>
-              <button
-                className={styles.btn}
-                onClick={() => handleArrowClick('right')}
-              >
-                <ArrowRightIcon />
-              </button>
-            </div>
-          </div>
+          <Controls
+            onArrowClick={handleArrowClick}
+            thumbPosition={thumbPosition}
+            thumbWidth={thumbWidth}
+            scrollbarRef={scrollbarRef}
+            thumbRef={thumbRef}
+          />
         </div>
       </Container>
     </section>

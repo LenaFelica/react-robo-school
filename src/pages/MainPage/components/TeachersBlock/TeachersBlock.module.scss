@@ -22,61 +22,6 @@
             display: none;
          }
       }
-
-      .item {
-         flex-basis: 360px;
-         flex-shrink: 0;
-         height: 100%;
-
-         .name {
-            font-size: 24px;
-            font-weight: 600;
-            margin-top: 20px;
-         }
-
-         .description {
-            font-size: 18px;
-            margin-top: 10px;
-            color: $text-color-primary-70;
-         }
-
-         .btn {
-            font-size: 18px;
-            margin-top: 20px;
-            color: $text-color-tertiary;
-            background: none;
-         }
-      }
-
-      .controls {
-         margin-top: 77px;
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-
-         .scrollbar {
-            position: relative;
-            width: 360px;
-            height: 5px;
-            border-radius: 40px;
-            background: $scroll-bg-color;
-
-            .thumb {
-               position: absolute;
-               top: 0;
-               left: 0;
-               width: 260px;
-               height: 5px;
-               border-radius: 40px;
-               background: $scroll-thumb-color;
-               cursor: grab;
-            }
-         }
-
-         .nav {
-            margin-right: 10px;
-         }
-      }
    }
 }
 
@@ -105,36 +50,6 @@
             padding: 0 10px;
             width: calc(100% + 20px);
             margin-left: -10px;
-         }
-
-         .item {
-            height: auto;
-            flex-basis: 300px;
-
-            .name {
-               font-size: 20px;
-               margin-top: 10px;
-            }
-
-            .description {
-               font-size: 14px;
-            }
-
-            .btn {
-               font-size: 16px;
-            }
-         }
-
-         .controls {
-            margin: 30px 0;
-
-            .scrollbar {
-               width: 100%;
-            }
-
-            .nav {
-               display: none;
-            }
          }
       }
    }
