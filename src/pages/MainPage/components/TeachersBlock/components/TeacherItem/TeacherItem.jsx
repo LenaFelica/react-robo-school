@@ -1,15 +1,16 @@
 import React from 'react';
 
 import { Button } from 'components/Button';
+import { sliderImages } from 'assets/images';
 
 import styles from './TeacherItem.module.scss';
 
-export const TeacherItem = ({ teacher, imagesMap }) => {
+export const TeacherItem = ({ teacher }) => {
   return (
     <div className={styles.item}>
       <img
         className={styles.img}
-        src={imagesMap[teacher.alt]}
+        src={sliderImages[teacher.imageName]}
         alt={teacher.name}
       />
       <div className={styles.text}>

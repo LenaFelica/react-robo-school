@@ -1,33 +1,38 @@
 import React from 'react';
+
 import { ArrowLeftIcon } from 'assets/icons/ArrowLeftIcon';
 import { ArrowRightIcon } from 'assets/icons/ArrowRightIcon';
+import { Scrollbar } from '../Scrollbar';
+
 import styles from './Controls.module.scss';
 
 export const Controls = ({
-  onArrowClick,
-  thumbPosition,
-  thumbWidth,
   scrollbarRef,
   thumbRef,
-}) => (
-  <div className={styles.controls}>
-    <div className={styles.scrollbar} ref={scrollbarRef}>
-      <div
-        className={styles.thumb}
-        ref={thumbRef}
-        style={{
-          left: `${thumbPosition}px`,
-          width: `${thumbWidth}%`,
-        }}
-      ></div>
+  handleThumbMouseDown,
+  handleThumbMouseUp,
+  scrollbarState,
+  handleLeftArrowClick,
+  handleRightArrowClick,
+}) => {
+  return (
+    <div className={styles.controls}>
+      <Scrollbar
+        scrollbarRef={scrollbarRef}
+        thumbRef={thumbRef}
+        handleThumbMouseDown={handleThumbMouseDown}
+        handleThumbMouseUp={handleThumbMouseUp}
+        scrollbarState={scrollbarState}
+      />
+
+      <div className={styles.nav}>
+        <button className={styles.btn} onClick={handleLeftArrowClick}>
+          <ArrowLeftIcon />
+        </button>
+        <button className={styles.btn} onClick={handleRightArrowClick}>
+          <ArrowRightIcon />
+        </button>
+      </div>
     </div>
-    <div className={styles.nav}>
-      <button className={styles.btn} onClick={() => onArrowClick('left')}>
-        <ArrowLeftIcon />
-      </button>
-      <button className={styles.btn} onClick={() => onArrowClick('right')}>
-        <ArrowRightIcon />
-      </button>
-    </div>
-  </div>
-);
+  );
+};
