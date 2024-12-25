@@ -17,16 +17,25 @@ export const useSliderControls = () => {
   const scrollbarRef = useRef(null);
 
   const calculateThumbWidth = (sliderRef) => {
+    if (!sliderRef.current) {
+      return 0;
+    }
     return (
       (sliderRef.current.clientWidth / sliderRef.current.scrollWidth) * 100
     );
   };
 
   const getSliderMaxScroll = () => {
+    if (!sliderRef.current) {
+      return 0;
+    }
     return sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
   };
 
   const updateThumbPosition = () => {
+    if (!sliderRef.current || !scrollbarRef.current || !thumbRef.current) {
+      return;
+    }
     const scrollPosition = sliderRef.current.scrollLeft;
     const newThumbPosition =
       (scrollPosition / getSliderMaxScroll()) *
@@ -41,7 +50,7 @@ export const useSliderControls = () => {
   };
 
   useEffect(() => {
-    if (!sliderRef || !thumbRef) {
+    if (!sliderRef.current || !thumbRef.current) {
       return;
     }
 
@@ -76,6 +85,13 @@ export const useSliderControls = () => {
   };
 
   const handleThumbMouseMove = (event) => {
+    if (
+      !scrollbarThumb.mouseDownParams ||
+      !thumbRef.current ||
+      !scrollbarRef.current
+    ) {
+      return;
+    }
     const deltaX = event.clientX - scrollbarThumb.mouseDownParams.startX;
     const newThumbPosition =
       scrollbarThumb.mouseDownParams.thumbPosition + deltaX;
@@ -122,6 +138,9 @@ export const useSliderControls = () => {
   }, [scrollbarThumb.isMoving]);
 
   const createArrowClickHandler = (arrowDirection) => {
+    if (!sliderRef.current) {
+      return;
+    }
     const scrollAmount =
       arrowDirection === 'left'
         ? -sliderRef.current.clientWidth

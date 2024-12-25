@@ -4,7 +4,7 @@ import maxim from './maxim.png';
 import konstantin from './konstantin.png';
 import lisa from './lisa.png';
 
-export const sliderImages = {
+export const teachersImages = {
   irina,
   marina,
   maxim,

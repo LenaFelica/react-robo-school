@@ -12,8 +12,6 @@ export const MainPage = () => {
       <AboutBlock />
       <ProfitBlock />
       <TeachersBlock />
-      {/* <PackageBlock />
-      <CourseBlock /> */}
       <p>something</p>
       <a
         className="App-link"

@@ -1,4 +1,3 @@
-// src/teachers/TeachersBlock.jsx
 import React from 'react';
 
 import { Container } from 'components/Container';
@@ -6,7 +5,7 @@ import teachers from 'api/teachers.json';
 
 import { TeacherItem } from './components/TeacherItem';
 import { Controls } from './components/Controls';
-import { useSliderControls } from 'hooks/useSliderControls';
+import { useSliderControls } from './hooks/useSliderControls';
 
 import styles from './TeachersBlock.module.scss';
 

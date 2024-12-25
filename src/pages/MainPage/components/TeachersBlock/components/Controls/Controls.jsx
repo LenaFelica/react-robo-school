@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ArrowLeftIcon } from 'assets/icons/ArrowLeftIcon';
 import { ArrowRightIcon } from 'assets/icons/ArrowRightIcon';
+
 import { Scrollbar } from '../Scrollbar';
 
 import styles from './Controls.module.scss';

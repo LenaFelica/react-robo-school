@@ -9,6 +9,11 @@ export const Scrollbar = ({
   handleThumbMouseUp,
   scrollbarState,
 }) => {
+  const thumbStyle = {
+    left: `${scrollbarState.leftPosition}px`,
+    width: `${scrollbarState.width}%`,
+    cursor: scrollbarState.isMoving ? 'grabbing' : 'grab',
+  };
   return (
     <div className={styles.scrollbar} ref={scrollbarRef}>
       <div
@@ -16,11 +21,7 @@ export const Scrollbar = ({
         ref={thumbRef}
         onMouseDown={handleThumbMouseDown}
         onMouseUp={handleThumbMouseUp}
-        style={{
-          left: `${scrollbarState.leftPosition}px`,
-          width: `${scrollbarState.width}%`,
-          cursor: scrollbarState.isMoving ? 'grabbing' : 'grab',
-        }}
+        style={thumbStyle}
       />
     </div>
   );
