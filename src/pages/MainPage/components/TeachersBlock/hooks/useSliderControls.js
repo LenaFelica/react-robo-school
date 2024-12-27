@@ -20,6 +20,7 @@ export const useSliderControls = () => {
     if (!sliderRef.current) {
       return 0;
     }
+
     return (
       (sliderRef.current.clientWidth / sliderRef.current.scrollWidth) * 100
     );
@@ -29,11 +30,14 @@ export const useSliderControls = () => {
     if (!sliderRef.current) {
       return 0;
     }
+
     return sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
   };
 
   const updateThumbPosition = () => {
-    if (!sliderRef.current || !scrollbarRef.current || !thumbRef.current) {
+    const isElementsMissing =
+      !sliderRef.current || !scrollbarRef.current || !thumbRef.current;
+    if (isElementsMissing) {
       return;
     }
     const scrollPosition = sliderRef.current.scrollLeft;
@@ -85,13 +89,15 @@ export const useSliderControls = () => {
   };
 
   const handleThumbMouseMove = (event) => {
-    if (
+    const isParamsOrElementsMissing =
       !scrollbarThumb.mouseDownParams ||
       !thumbRef.current ||
-      !scrollbarRef.current
-    ) {
+      !scrollbarRef.current;
+
+    if (isParamsOrElementsMissing) {
       return;
     }
+
     const deltaX = event.clientX - scrollbarThumb.mouseDownParams.startX;
     const newThumbPosition =
       scrollbarThumb.mouseDownParams.thumbPosition + deltaX;
