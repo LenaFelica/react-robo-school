@@ -6,7 +6,7 @@ export const Button = ({ children, onClick, variant, additionalClassname }) => {
   const createButtonVariant = () => {
     switch (true) {
       case variant === 'link':
-        return `${styles.button} ${styles.link}`;
+        return `${styles.link}`;
       case variant === 'dark':
         return `${styles.button} ${styles.dark}`;
       default:

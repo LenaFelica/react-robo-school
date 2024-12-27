@@ -1,0 +1,22 @@
+@use "src/styles/variables.scss" as *;
+
+.controls {
+   margin-top: 77px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   .nav {
+      margin-right: 10px;
+   }
+}
+
+@media (max-width: 768px) {
+   .controls {
+      margin: 30px 0;
+
+      .nav {
+         display: none;
+      }
+   }
+}

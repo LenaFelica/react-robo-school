@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "title": "Ирина Лайм",
-    "imageName": "coach1",
-    "jobtitle": "преподаватель по робототехнике",
+    "name": "Ирина Лайм",
+    "imageName": "irina",
+    "desc": "преподаватель по робототехнике",
     "links": [
       {
         "href": "www.facebook.com",
@@ -37,9 +37,9 @@
   },
   {
     "id": 2,
-    "title": "Марина Орлова",
-    "imageName": "coach2",
-    "jobtitle": "преподаватель по робототехнике",
+    "name": "Марина Орлова",
+    "imageName": "marina",
+    "desc": "преподаватель по робототехнике",
     "links": [
       {
         "href": "www.facebook.com",
@@ -77,9 +77,9 @@
   },
   {
     "id": 3,
-    "title": "Максим Петров",
-    "imageName": "coach3",
-    "jobtitle": "преподаватель по программированию",
+    "name": "Максим Петров",
+    "imageName": "maxim",
+    "desc": "преподаватель по программированию",
     "links": [
       {
         "href": "www.facebook.com",
@@ -116,9 +116,9 @@
   },
   {
     "id": 4,
-    "title": "Константин Назаров",
-    "imageName": "coach4",
-    "jobtitle": "преподаватель по робототехнике",
+    "name": "Константин Назаров",
+    "imageName": "konstantin",
+    "desc": "преподаватель по робототехнике",
     "links": [
       {
         "href": "www.facebook.com",
@@ -160,9 +160,9 @@
   },
   {
     "id": 5,
-    "title": "Лиза Весенняя",
-    "imageName": "coach5",
-    "jobtitle": "преподаватель по программированию",
+    "name": "Лиза Весенняя",
+    "imageName": "lisa",
+    "desc": "преподаватель по программированию",
     "links": [
       {
         "href": "www.facebook.com",
