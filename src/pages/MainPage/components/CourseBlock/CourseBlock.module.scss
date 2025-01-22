@@ -9,11 +9,9 @@
    color: $text-color-secondary;
    padding: 87px 0;
    .wrapper {
-      .content {
-         display: flex;
-         padding: 0 55px;
-         gap: 60px;
-      }
+      display: flex;
+      padding: 0 55px;
+      gap: 60px;
 
       .text {
          display: flex;
@@ -40,10 +38,8 @@
       padding: 40px 0;
 
       .wrapper {
-         .content {
-            padding: 0 30px;
-            gap: 20px;
-         }
+         padding: 0 30px;
+         gap: 20px;
 
          .text {
             margin-top: 0;
@@ -55,12 +51,10 @@
 @media (max-width: 768px) {
    .course {
       .wrapper {
-         .content {
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            padding: 0 10px;
-         }
+         flex-direction: column;
+         align-items: center;
+         gap: 10px;
+         padding: 0 10px;
 
          .text {
             align-items: center;

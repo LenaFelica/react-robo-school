@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Container } from 'components/Container';
-import { Button } from 'components/Button';
+
+import { PackageItem } from './PackageItem';
 
 import styles from './PackageBlock.module.scss';
 
@@ -33,19 +34,14 @@ export const PackageBlock = () => {
         <div className={styles.wrapper}>
           <h2 className={styles.title}>Выберете нужный пакет</h2>
           <div className={styles.packageList}>
-            {packageItems.map((item) => (
-              <div key={item.id} className={styles.packageItem}>
-                <h3 className={styles.packageTitle}>{item.title}</h3>
-                <div className={styles.packageText}>
-                  <span className={styles.packagePrice}>{item.price}</span>
-                  <span className={styles.packageDescription}>
-                    {item.description}
-                  </span>
-                </div>
-                <Button additionalClassname={styles.button}>
-                  Оставить заявку
-                </Button>
-              </div>
+            {packageItems.map(({ id, title, price, description }) => (
+              <PackageItem
+                key={id}
+                id={id}
+                title={title}
+                price={price}
+                description={description}
+              />
             ))}
           </div>
         </div>

@@ -9,26 +9,6 @@
    gap: 10px;
 }
 
-.input {
-   font-size: 18px;
-   background-color: $input-bg-color;
-   color: $input-text-color;
-   padding: 18px 19px;
-   border-radius: 5px;
-   border: 1px solid #fff;
-   box-sizing: border-box;
-}
-
-.error {
-   font-size: 14px;
-   margin-top: -8px;
-   border-color: $border-color-error;
-}
-
-.button {
-   padding: 19px 20px;
-}
-
 @media (max-width: 768px) {
    .form {
       margin-top: 20px;

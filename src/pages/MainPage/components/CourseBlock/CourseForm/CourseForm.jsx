@@ -1,36 +1,25 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 
 import { Button } from 'components/Button';
 
-import styles from './CourseForm.module.scss';
+import { CourseInput } from '../CourseInput';
+import { schema } from './validationSchema';
 
-const schema = yup.object().shape({
-  name: yup
-    .string()
-    .required('Имя обязательно')
-    .min(2, 'Имя должно содержать минимум 2 символа'),
-  phone: yup
-    .string()
-    .required('Телефон обязателен')
-    .matches(/^[0-9]{11}$/, 'Телефон должен содержать ровно 11 цифр'),
-  email: yup
-    .string()
-    .required('E-mail обязателен')
-    .email('Некорректный e-mail'),
-});
+import styles from './CourseForm.module.scss';
 
 export const CourseForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (data) => {
     console.log('Form submitted: ', data);
+    reset();
   };
 
   return (
@@ -39,34 +28,28 @@ export const CourseForm = () => {
       id="add-form"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
+      autoComplete="off"
     >
-      <input
-        className={styles.input}
+      <CourseInput
         id="name"
-        {...register('name')}
         placeholder="Имя"
-        autoComplete="off"
+        register={register('name')}
+        error={errors.name}
       />
-      {errors.name && <p className={styles.error}>{errors.name.message}</p>}
-
-      <input
-        className={styles.input}
+      <CourseInput
         id="phone"
         type="tel"
-        {...register('phone')}
         placeholder="Телефон"
-        autoComplete="off"
+        register={register('phone')}
+        error={errors.phone}
       />
-      {errors.phone && <p className={styles.error}>{errors.phone.message}</p>}
-      <input
-        className={styles.input}
+      <CourseInput
         id="email"
         type="email"
-        {...register('email')}
         placeholder="E-mail"
-        autoComplete="off"
+        register={register('email')}
+        error={errors.email}
       />
-      {errors.email && <p className={styles.error}>{errors.email.message}</p>}
       <Button className={styles.button} variant="dark">
         Оформить заявку
       </Button>
