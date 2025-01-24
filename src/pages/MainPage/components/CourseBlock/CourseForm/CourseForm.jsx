@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Button } from 'components/Button';
+import { Input } from 'components/Input';
 
-import { CourseInput } from '../CourseInput';
 import { schema } from './validationSchema';
 
 import styles from './CourseForm.module.scss';
@@ -30,20 +30,20 @@ export const CourseForm = () => {
       noValidate
       autoComplete="off"
     >
-      <CourseInput
+      <Input
         id="name"
         placeholder="Имя"
         register={register('name')}
         error={errors.name}
       />
-      <CourseInput
+      <Input
         id="phone"
         type="tel"
         placeholder="Телефон"
         register={register('phone')}
         error={errors.phone}
       />
-      <CourseInput
+      <Input
         id="email"
         type="email"
         placeholder="E-mail"

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from './CourseInput.module.scss';
+import styles from './Input.module.scss';
 
-export const CourseInput = ({
+export const Input = ({
   id,
   type = 'text',
   placeholder,
@@ -19,6 +19,5 @@ export const CourseInput = ({
       {...register}
       {...rest}
     />
-    {error && <p className={styles.error}>{error.message}</p>}
   </>
 );

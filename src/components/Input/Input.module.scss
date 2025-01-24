@@ -7,13 +7,11 @@
    color: $input-text-color;
    padding: 18px 19px;
    border-radius: 5px;
-   border: 1px solid #fff;
+   border: 1px solid transparent;
    box-sizing: border-box;
 }
 
 .error {
-   font-size: 14px;
-   margin-top: -8px;
    border-color: $border-color-error;
 }
 
