@@ -1,0 +1,17 @@
+@use "src/styles/variables.scss" as *;
+
+.form {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   max-width: 500px;
+   flex: 1 1 100%;
+   gap: 10px;
+}
+
+@media (max-width: 768px) {
+   .form {
+      margin-top: 20px;
+      width: 100%;
+   }
+}

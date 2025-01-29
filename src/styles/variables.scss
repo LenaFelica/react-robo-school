@@ -21,7 +21,7 @@ $text-color-secondary: $tertiary-color;
 $text-color-secondary-70: #ffffffde;
 $text-color-tertiary: $secondary-color;
 
-$accent-color-hover: #f3474d;
+$accent-color-hover: #b20c12;
 
 $scroll-bg-color: #ececed;
 $scroll-thumb-color: $primary-color;
@@ -35,6 +35,6 @@ $input-text-color: #282944ed;
 
 $border-color: #dddce0;
 $border-color-hover: $primary-color;
-$border-color-error: $primary-color;
+$border-color-error: $accent-color-hover;
 
 $hr-color: #ececec;

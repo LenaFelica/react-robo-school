@@ -4,6 +4,8 @@ import { PromoBlock } from './components/PromoBlock/PromoBlock';
 import { AboutBlock } from './components/AboutBlock';
 import { ProfitBlock } from './components/ProfitBlock';
 import { TeachersBlock } from './components/TeachersBlock';
+import { PackageBlock } from './components/PackageBlock';
+import { CourseBlock } from './components/CourseBlock';
 
 export const MainPage = () => {
   return (
@@ -12,15 +14,8 @@ export const MainPage = () => {
       <AboutBlock />
       <ProfitBlock />
       <TeachersBlock />
-      <p>something</p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        React
-      </a>
+      <PackageBlock />
+      <CourseBlock />
     </>
   );
 };
