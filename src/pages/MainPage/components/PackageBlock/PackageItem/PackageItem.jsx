@@ -4,7 +4,7 @@ import { Button } from 'components/Button';
 
 import styles from './PackageItem.module.scss';
 
-export const PackageItem = ({ id, title, price, description }) => {
+export const PackageItem = ({ item: { id, title, price, description } }) => {
   return (
     <div key={id} className={styles.packageItem}>
       <h3 className={styles.packageTitle}>{title}</h3>

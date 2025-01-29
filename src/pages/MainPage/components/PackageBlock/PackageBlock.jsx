@@ -34,14 +34,8 @@ export const PackageBlock = () => {
         <div className={styles.wrapper}>
           <h2 className={styles.title}>Выберете нужный пакет</h2>
           <div className={styles.packageList}>
-            {packageItems.map(({ id, title, price, description }) => (
-              <PackageItem
-                key={id}
-                id={id}
-                title={title}
-                price={price}
-                description={description}
-              />
+            {packageItems.map((item) => (
+              <PackageItem key={item.id} item={item} />
             ))}
           </div>
         </div>
