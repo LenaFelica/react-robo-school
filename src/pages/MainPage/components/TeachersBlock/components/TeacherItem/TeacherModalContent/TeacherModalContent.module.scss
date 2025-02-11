@@ -1,0 +1,299 @@
+@use "src/styles/variables.scss" as *;
+
+.modalContent {
+   position: relative;
+   overflow-y: hidden;
+   display: flex;
+   flex-direction: column;
+   background-color: #fff;
+   border-radius: 20px;
+   text-align: left;
+   padding: 40px;
+   max-height: 90vh;
+   width: min(95%, 940px);
+   height: 770px;
+
+   .closeModalBtnDesktop {
+      display: block;
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      width: auto;
+      height: auto;
+      font-size: 18px;
+      line-height: 160%;
+      color: $text-color-primary-70;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+         color: $button-color-primary;
+      }
+   }
+
+   .closeMobileIcon {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      border: 1px solid #fff;
+      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+   }
+
+   .contentTop {
+      display: flex;
+      gap: 40px;
+
+      .contentTopImg {
+         width: 160px;
+         height: auto;
+         max-width: 100%;
+      }
+
+      .contentTopInfo {
+         .contentTopInfoTitle {
+            font-size: 24px;
+            font-weight: 600;
+            color: $text-color-primary;
+         }
+
+         .contentTopInfoDesc {
+            margin-top: 10px;
+            font-size: 18px;
+            color: $text-color-primary-70;
+         }
+
+         .contentSocials {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+         }
+      }
+   }
+
+   .contentBottom {
+      margin-top: 40px;
+      position: relative;
+
+      &::after {
+         position: absolute;
+         content: "";
+         width: 98%;
+         height: 25px;
+         bottom: 0;
+         left: 0;
+         background-image: $bg-image-tabs;
+      }
+
+      .tabsMenu {
+         font-size: 20px;
+         display: flex;
+         justify-content: flex-start;
+         width: 100%;
+         position: relative;
+         border-bottom: 2px solid $hr-color;
+
+         .tabsMenuBtn {
+            color: $text-color-primary-70;
+            transition: color 0.1s ease;
+            padding: 15px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+
+            &:hover {
+               color: $text-color-primary;
+            }
+
+            &.active {
+               color: $button-color-primary;
+            }
+         }
+      }
+
+      .contentBottomTabsContent {
+         position: relative;
+         max-height: 340px;
+         overflow-y: auto;
+         padding-bottom: 25px;
+
+         .tabContent {
+            display: none;
+            padding: 6px 0;
+            border-top: none;
+
+            &.active {
+               display: block;
+            }
+
+            .tabContentInfo {
+               margin-top: 20px;
+               font-size: 20px;
+               line-height: 32px;
+            }
+
+            .tabContentTitle {
+               font-size: 24px;
+               font-weight: 600;
+               color: $text-color-primary;
+               margin-top: 40px;
+            }
+         }
+      }
+   }
+
+   .selectTeachers {
+      position: relative;
+      display: none;
+      -webkit-appearance: none;
+      appearance: none;
+      margin-top: 30px;
+
+      .selectTeachersBtn {
+         position: relative;
+         width: 100%;
+         cursor: pointer;
+         border: 1px solid #fff;
+         padding: 10px;
+         background-color: $bg-color-tertiary;
+         color: $text-color-secondary;
+         justify-content: center;
+         align-items: center;
+         font-size: 16px;
+         z-index: 1;
+         gap: 10px;
+
+         &:hover {
+            background-color: lighten($bg-color-tertiary, 10%);
+         }
+
+         .arrow {
+            width: 10px;
+            height: 10px;
+         }
+      }
+
+      .selectTeachersList {
+         display: none;
+         flex-direction: column;
+         position: absolute;
+         top: 100%;
+         left: 0;
+         width: 100%;
+         z-index: 1;
+
+         &.active {
+            display: flex;
+         }
+
+         .selectTeachersListItem {
+            width: 100%;
+            padding: 10px;
+            background-color: $bg-color-tertiary;
+            color: $text-color-secondary;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #fff;
+            border-bottom: 0;
+
+            &.active {
+               background-color: $bg-color-tertiary-active;
+            }
+         }
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .modalContent {
+      padding: 30px 20px;
+      height: 100%;
+      width: 100%;
+      border-radius: 0;
+      max-height: 100dvh;
+
+      .closeModalBtnDesktop {
+         display: none;
+      }
+
+      .closeMobileIcon {
+         display: flex;
+      }
+
+      .selectTeachers {
+         display: flex;
+
+         .selectTeachersBtn {
+            display: flex;
+         }
+
+         .selectTeachersList {
+            .selectTeachersListItem {
+               display: flex;
+            }
+         }
+      }
+
+      .contentTop {
+         gap: 20px;
+
+         .contentTopImg {
+            max-width: 100%;
+            min-width: 60px;
+            height: auto;
+         }
+
+         .contentTopInfo {
+            margin-top: 30px;
+
+            .contentTopInfoTitle {
+               font-size: 16px;
+            }
+
+            .contentTopInfoDesc {
+               margin-top: 5px;
+               font-size: 12px;
+            }
+
+            .contentSocials {
+               gap: 5px;
+               margin-top: 10px;
+            }
+         }
+      }
+
+      .contentBottom {
+         margin-top: 20px;
+         flex-grow: 1;
+         overflow-x: scroll;
+
+         &::after {
+            content: none;
+         }
+
+         .tabsMenu {
+            display: none;
+         }
+
+         .contentBottomTabsContent {
+            max-height: unset;
+
+            .tabContent {
+               padding: 6px 0;
+
+               .tabContentInfo {
+                  margin-top: 5px;
+               }
+            }
+         }
+      }
+   }
+}
