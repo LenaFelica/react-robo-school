@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
+import { useWindowSize } from 'hooks/useWindowSize';
 import { useOutsideClick } from 'hooks/useOutsideClick';
+
+import { lockScroll, unlockScroll } from 'utils/scrollLock';
+import { CloseBlack } from 'assets/icons';
 
 import styles from './Modal.module.scss';
 
@@ -10,34 +14,26 @@ export const Modal = ({
   onClose,
   additionalClassname = '',
 }) => {
+  const { isMobile } = useWindowSize();
   const modalRef = useRef(null);
 
-  const handleModalClose = () => {
-    onClose();
-  };
-
-  useOutsideClick({ ref: modalRef, handler: handleModalClose });
-
   useEffect(() => {
-    console.log('Modal Ref:', modalRef.current);
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-    };
-
     if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.classList.add('unscroll');
+      lockScroll();
     } else {
-      document.body.classList.remove('unscroll');
+      unlockScroll();
     }
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.classList.remove('unscroll');
+      unlockScroll();
     };
-  }, [isOpen, onClose]);
+  }, [isOpen]);
+
+  useOutsideClick({
+    ref: modalRef,
+    handler: onClose,
+    condition: isOpen,
+  });
 
   if (!isOpen) {
     return null;
@@ -52,9 +48,13 @@ export const Modal = ({
   };
 
   return (
-    <div className={styles.overlay}>
-      <div ref={modalRef} className={createModalClassname()}>
+    <div className={createModalClassname()}>
+      <div className={styles.modalBackdrop} />
+      <div ref={modalRef} className={styles.modalContent}>
         {children}
+        <button className={styles.closeModalBtn} onClick={onClose}>
+          {isMobile ? <CloseBlack /> : 'Закрыть'}
+        </button>
       </div>
     </div>
   );

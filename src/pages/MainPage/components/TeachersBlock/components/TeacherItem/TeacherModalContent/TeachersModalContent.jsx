@@ -3,13 +3,13 @@ import React, { useRef, useState } from 'react';
 import { useOutsideClick } from 'hooks/useOutsideClick';
 import teachers from 'api/teachers.json';
 import { teachersImages } from 'assets/images';
-import { ArrowDown, CloseBlack } from 'assets/icons';
+import { ArrowDown } from 'assets/icons';
 import { Instagram } from 'assets/icons';
 import { Facebook } from 'assets/icons';
 
 import styles from './TeacherModalContent.module.scss';
 
-export const TeacherModalContent = ({ teacherId, onClose }) => {
+export const TeacherModalContent = ({ teacherId }) => {
   const [activeTab, setActiveTab] = useState('education');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -45,13 +45,6 @@ export const TeacherModalContent = ({ teacherId, onClose }) => {
 
   return (
     <div className={styles.modalContent}>
-      <button className={styles.closeModalBtn} onClick={onClose}>
-        <span className={styles.closeModalBtnDesktop}>Закрыть</span>
-        <span className={styles.closeMobileIcon} alt="Закрыть">
-          <CloseBlack />
-        </span>
-      </button>
-
       <div className={styles.contentTop}>
         <img
           className={styles.contentTopImg}

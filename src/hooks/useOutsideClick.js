@@ -20,8 +20,6 @@ export const useOutsideClick = ({
       const hasExceptElTarget =
         exceptEl && exceptEl?.contains(event?.target || null);
 
-      console.log('event.target:', event.target);
-
       if (!el || hasElTarget || (exceptEl && hasExceptElTarget)) {
         return;
       }

@@ -4,17 +4,92 @@
    display: flex;
    justify-content: center;
    align-items: center;
-
    position: fixed;
-   column-gap: 40px;
-   left: 0;
    top: 0;
+   left: 0;
    z-index: 1000;
    width: 100%;
    height: 100%;
-   background-color: $bg-color-modal-70;
 }
 
-body.unscroll {
-   overflow: hidden;
+.modalBackdrop {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: $bg-color-modal-70;
+   z-index: 999;
+}
+
+.modalContent {
+   position: relative;
+   overflow-y: hidden;
+   display: flex;
+   flex-direction: column;
+   background-color: #fff;
+   border-radius: 20px;
+   text-align: left;
+   padding: 40px;
+   max-height: 90vh;
+   width: min(95%, 940px);
+   height: 770px;
+   z-index: 1010;
+}
+
+.closeModalBtn {
+   position: absolute;
+   right: 40px;
+   top: 40px;
+   background: none;
+   border: none;
+   cursor: pointer;
+
+   .closeModalBtnDesktop {
+      display: block;
+      font-size: 18px;
+      line-height: 160%;
+      color: $text-color-primary-70;
+      width: auto;
+      height: auto;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+         color: $button-color-primary;
+      }
+   }
+
+   .closeMobileIcon {
+      display: none;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid #fff;
+      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      background-color: transparent;
+   }
+}
+
+@media (max-width: 768px) {
+   .modalContent {
+      padding: 30px 20px;
+      height: 100%;
+      width: 100%;
+      border-radius: 0;
+      max-height: 100dvh;
+   }
+
+   .closeModalBtn {
+      .closeModalBtnDesktop {
+         display: none;
+      }
+
+      .closeMobileIcon {
+         display: flex;
+      }
+   }
 }

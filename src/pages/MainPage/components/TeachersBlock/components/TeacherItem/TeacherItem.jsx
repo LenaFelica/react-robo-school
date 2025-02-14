@@ -12,29 +12,25 @@ export const TeacherItem = ({ teacher }) => {
   const { id, name, description, imageName } = teacher;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () => {
+  const handleModalOpen = () => {
     setIsModalOpen(true);
   };
-  const handleCloseModal = () => {
+  const handleModalClose = () => {
     setIsModalOpen(false);
   };
 
   return (
     <div className={styles.item}>
-      <img className={styles.img} src={teachersImages[imageName]} alt={name} />
-      <div className={styles.text}>
+      <img src={teachersImages[imageName]} alt={name} />
+      <div>
         <div className={styles.name}>{name}</div>
         <div className={styles.description}>{description}</div>
-        <Button className={styles.btn} variant="link" onClick={handleOpenModal}>
+        <Button className={styles.btn} variant="link" onClick={handleModalOpen}>
           Подробнее
         </Button>
       </div>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        additionalClassname={styles.modal}
-      >
-        <TeacherModalContent teacherId={id} onClose={handleCloseModal} />
+      <Modal isOpen={isModalOpen} onClose={handleModalClose}>
+        <TeacherModalContent teacherId={id} onClose={handleModalClose} />
       </Modal>
     </div>
   );
