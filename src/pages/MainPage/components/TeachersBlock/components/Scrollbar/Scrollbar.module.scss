@@ -1,26 +1,26 @@
 @use "src/styles/variables.scss" as *;
 
 .scrollbar {
-   position: relative;
-   width: 360px;
-   height: 5px;
-   border-radius: 40px;
-   background: $scroll-bg-color;
+  position: relative;
+  width: 360px;
+  height: 5px;
+  border-radius: 40px;
+  background: $scroll-bg-color;
 
-   .thumb {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 260px;
-      height: 5px;
-      border-radius: 40px;
-      background: $scroll-thumb-color;
-      cursor: grab;
-   }
+  .thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 5px;
+    border-radius: 40px;
+    background: $scroll-thumb-color;
+    cursor: grab;
+  }
 }
 
 @media (max-width: 768px) {
-   .scrollbar {
-      width: 100%;
-   }
+  .scrollbar {
+    width: 100%;
+  }
 }

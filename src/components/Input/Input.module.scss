@@ -1,22 +1,22 @@
 @use "src/styles/variables.scss" as *;
 
 .input {
-   max-width: 500px;
-   font-size: 18px;
-   background-color: $input-bg-color;
-   color: $input-text-color;
-   padding: 18px 19px;
-   border-radius: 5px;
-   border: 1px solid #fff;
-   box-sizing: border-box;
+  max-width: 500px;
+  font-size: 18px;
+  background-color: $input-bg-color;
+  color: $input-text-color;
+  padding: 18px 19px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  box-sizing: border-box;
 }
 
 .error {
-   border-color: $border-color-error;
+  border-color: $border-color-error;
 }
 
 @media (max-width: 768px) {
-   .input {
-      width: 100%;
-   }
+  .input {
+    width: 100%;
+  }
 }

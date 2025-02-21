@@ -1,47 +1,29 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
-import { useOutsideClick } from 'hooks/useOutsideClick';
-import teachers from 'api/teachers.json';
 import { teachersImages } from 'assets/images';
-import { ArrowDown } from 'assets/icons';
+
 import { Instagram } from 'assets/icons';
 import { Facebook } from 'assets/icons';
 
 import styles from './TeacherModalContent.module.scss';
 
-export const TeacherModalContent = ({ teacherId }) => {
+export const TeacherModalContent = ({ teacher }) => {
   const [activeTab, setActiveTab] = useState('education');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
-  const buttonRef = useRef(null);
-
-  const teacher = teachers.find((t) => t.id === teacherId);
 
   if (!teacher) {
     return <div>Учитель не найден</div>;
   }
 
-  const { name, desc, imageName, education, experience, achievements } =
-    teacher;
+  const { name, desc, imageName, tabs } = teacher;
 
-  const tabsData = { education, experience, achievements };
+  const createActiveTabClassname = (name) => {
+    return `${styles.tabsMenuBtn} ${activeTab === name ? styles.active : ''}`;
+  };
 
-  const tabs = Object.keys(tabsData).map((key) => ({
-    key,
-    label:
-      key === 'education'
-        ? 'Образование'
-        : key === 'experience'
-          ? 'Опыт работы'
-          : 'Награды',
-  }));
+  const createTabClickHandler = (name) => () => setActiveTab(name);
 
-  useOutsideClick({
-    ref: dropdownRef,
-    handler: () => setIsDropdownOpen(false),
-    condition: isDropdownOpen,
-    exceptElementRef: buttonRef,
-  });
+  const activeTabContent =
+    tabs.find((tab) => tab.name === activeTab)?.data || [];
 
   return (
     <div className={styles.modalContent}>
@@ -73,126 +55,34 @@ export const TeacherModalContent = ({ teacherId }) => {
         </div>
       </div>
 
-      {/* Dropdown */}
-
-      <div className={styles.selectTeachers} ref={dropdownRef}>
-        <button
-          type="button"
-          className={styles.selectTeachersBtn}
-          onClick={() => setIsDropdownOpen((prev) => !prev)}
-        >
-          <span className={styles.selectTeachersText}>
-            {tabs.find((tab) => tab.key === activeTab)?.label}
-          </span>
-          <span className={styles.selectTeachersImg}>
-            <ArrowDown className={styles.arrow} />
-          </span>
-        </button>
-
-        {isDropdownOpen && (
-          <div
-            className={`${styles.selectTeachersList} ${
-              isDropdownOpen ? styles.active : ''
-            }`}
-          >
-            {tabs.map(({ key, label }) => (
-              <button
-                key={key}
-                type="button"
-                className={`${styles.selectTeachersListItem} ${
-                  activeTab === key ? styles.active : ''
-                }`}
-                onClick={() => {
-                  setActiveTab(key);
-                  setIsDropdownOpen(false);
-                }}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-
       <div className={styles.contentBottom}>
         <div className={styles.tabsMenu}>
-          {tabs.map(({ key, label }) => (
+          {tabs.map(({ name, title }) => (
             <button
-              key={key}
+              key={name}
               type="button"
-              className={`${styles.tabsMenuBtn} ${
-                activeTab === key ? styles.active : ''
-              }`}
-              onClick={() => setActiveTab(key)}
+              className={createActiveTabClassname(name)}
+              onClick={createTabClickHandler(name)}
             >
-              {label}
+              {title}
             </button>
           ))}
         </div>
         <div className={styles.contentBottomTabsContent}>
-          {activeTab === 'education' && (
-            <div
-              className={`${styles.tabContent} ${
-                activeTab === 'education' ? styles.active : ''
-              }`}
-            >
-              {education.map((item, index) => (
-                <div key={index}>
-                  <div className={styles.tabContentInfo}>
-                    <p className={styles.tabContentText}>{item.date}</p>
-                    <p className={styles.tabContentText}>{item.university}</p>
-                    <p className={styles.tabContentText}>{item.faculty}</p>
-                    <p className={styles.tabContentText}>{item.form}</p>
-                  </div>
-                  {item.title && (
-                    <>
-                      <h3 className={styles.tabContentTitle}>{item.title}</h3>
-                      <div className={styles.tabContentInfo}>
-                        {item.courses && (
-                          <p className={styles.tabContentText}>
-                            {item.courses}
-                          </p>
-                        )}
-                        {item.trainings && (
-                          <p className={styles.tabContentText}>
-                            {item.trainings}
-                          </p>
-                        )}
-                      </div>
-                    </>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
-
-          {activeTab === 'experience' && (
-            <div
-              className={`${styles.tabContent} ${
-                activeTab === 'experience' ? styles.active : ''
-              }`}
-            >
-              {experience.map((item, index) => (
-                <div key={index} className={styles.tabContentInfo}>
-                  <p className={styles.tabContentText}>{item}</p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {activeTab === 'achievements' && (
-            <div
-              className={`${styles.tabContent} ${
-                activeTab === 'achievements' ? styles.active : ''
-              }`}
-            >
-              {achievements.map((item, index) => (
-                <div key={index} className={styles.tabContentInfo}>
-                  <p className={styles.tabContentText}>{item}</p>
-                </div>
-              ))}
-            </div>
-          )}
+          {activeTabContent.map((content, index) => {
+            return (
+              <div key={index} className={styles.tabContent}>
+                {Boolean(content.title) && (
+                  <h3 className={styles.tabContentTitle}>{content.title}</h3>
+                )}
+                {content.text?.map((textParagraph, indexParagraph) => (
+                  <p key={indexParagraph} className={styles.tabContentInfo}>
+                    {textParagraph}
+                  </p>
+                ))}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

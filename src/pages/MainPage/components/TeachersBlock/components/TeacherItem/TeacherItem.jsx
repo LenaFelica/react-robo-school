@@ -9,7 +9,7 @@ import { TeacherModalContent } from './TeacherModalContent';
 import styles from './TeacherItem.module.scss';
 
 export const TeacherItem = ({ teacher }) => {
-  const { id, name, description, imageName } = teacher;
+  const { name, description, imageName } = teacher;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleModalOpen = () => {
@@ -30,7 +30,7 @@ export const TeacherItem = ({ teacher }) => {
         </Button>
       </div>
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-        <TeacherModalContent teacherId={id} onClose={handleModalClose} />
+        <TeacherModalContent teacher={teacher} />
       </Modal>
     </div>
   );

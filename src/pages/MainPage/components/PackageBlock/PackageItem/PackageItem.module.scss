@@ -1,118 +1,118 @@
 @use "src/styles/variables.scss" as *;
 
 .packageItem {
-   display: flex;
-   flex-direction: column;
-   text-align: center;
-   flex-basis: 360px;
-   border: 2px solid $border-color;
-   border-radius: 20px;
-   padding: 40px;
-   transition:
-      transform 0.2s ease,
-      background-color 0.2s ease,
-      border 0.2s ease,
-      color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-basis: 360px;
+  border: 2px solid $border-color;
+  border-radius: 20px;
+  padding: 40px;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border 0.2s ease,
+    color 0.2s ease;
 
-   &:hover {
+  &:hover {
+    background-color: $bg-color-primary;
+    border: 2px solid $border-color-hover;
+    color: $text-color-secondary;
+    transform: scale(1.1);
+
+    &::before,
+    &::after {
+      background-color: $bg-color-white;
+    }
+    .packageTitle {
+      &::before,
+      &::after {
+        background-color: $bg-color-white;
+      }
+    }
+  }
+
+  .packageTitle {
+    font-size: 30px;
+    font-weight: 600;
+    align-self: center;
+    width: max-content;
+    text-transform: uppercase;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      top: 50%;
+      transform: translateY(-50%);
+      transition: background-color 0.2s ease;
+      position: absolute;
+      width: 19px;
+      height: 3px;
       background-color: $bg-color-primary;
-      border: 2px solid $border-color-hover;
-      color: $text-color-secondary;
-      transform: scale(1.1);
+    }
 
+    &::before {
+      left: -33px;
+    }
+    &::after {
+      right: -33px;
+    }
+
+    &:hover {
       &::before,
       &::after {
-         background-color: $bg-color-white;
+        background-color: $bg-color-white;
       }
-      .packageTitle {
-         &::before,
-         &::after {
-            background-color: $bg-color-white;
-         }
-      }
-   }
+    }
+  }
 
-   .packageTitle {
-      font-size: 30px;
-      font-weight: 600;
-      align-self: center;
-      width: max-content;
-      text-transform: uppercase;
-      position: relative;
+  .packageText {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 33px;
+  }
 
-      &::before,
-      &::after {
-         content: "";
-         top: 50%;
-         transform: translateY(-50%);
-         transition: background-color 0.2s ease;
-         position: absolute;
-         width: 19px;
-         height: 3px;
-         background-color: $bg-color-primary;
-      }
+  .packagePrice {
+    font-size: 50px;
+    font-weight: 600;
+  }
 
-      &::before {
-         left: -33px;
-      }
-      &::after {
-         right: -33px;
-      }
+  .packageDescription {
+    font-size: 18px;
+    margin-top: 20px;
+  }
 
-      &:hover {
-         &::before,
-         &::after {
-            background-color: $bg-color-white;
-         }
-      }
-   }
-
-   .packageText {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      margin-top: 60px;
-      margin-bottom: 33px;
-   }
-
-   .packagePrice {
-      font-size: 50px;
-      font-weight: 600;
-   }
-
-   .packageDescription {
-      font-size: 18px;
-      margin-top: 20px;
-   }
-
-   .button {
-      margin-top: auto;
-   }
+  .button {
+    margin-top: auto;
+  }
 }
 
 @media (max-width: 768px) {
-   .packageItem {
-      padding: 40px 20px;
+  .packageItem {
+    padding: 40px 20px;
 
-      &:hover {
-         margin: 0 10px;
-      }
+    &:hover {
+      margin: 0 10px;
+    }
 
-      .packageText {
-         margin-top: 40px;
-      }
+    .packageText {
+      margin-top: 40px;
+    }
 
-      .packagePrice {
-         font-size: 40px;
-      }
+    .packagePrice {
+      font-size: 40px;
+    }
 
-      .packageDescription {
-         font-size: 16px;
-      }
+    .packageDescription {
+      font-size: 16px;
+    }
 
-      .button {
-         font-size: 16px;
-         margin-top: 25px;
-      }
-   }
+    .button {
+      font-size: 16px;
+      margin-top: 25px;
+    }
+  }
 }
