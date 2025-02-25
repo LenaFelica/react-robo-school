@@ -6,12 +6,12 @@
     "desc": "преподаватель по робототехнике",
     "links": [
       {
-        "href": "www.facebook.com",
-        "imagePath": "src/assets/icons/facebook-icon.svg"
+        "href": "https://www.facebook.com",
+        "imagePath": "/icons/facebook.svg"
       },
       {
         "href": "https://www.instagram.com",
-        "imagePath": "src/assets/icons/insta-icon.svg"
+        "imagePath": "/icons/instagram.svg"
       }
     ],
     "tabs": [
@@ -71,12 +71,12 @@
     "desc": "преподаватель по робототехнике",
     "links": [
       {
-        "href": "www.facebook.com",
-        "imagePath": "src/assets/icons/facebook-icon.svg"
+        "href": "https://www.facebook.com",
+        "imagePath": "/icons/facebook.svg"
       },
       {
         "href": "https://www.instagram.com",
-        "imagePath": "src/assets/icons/insta-icon.svg"
+        "imagePath": "/icons/instagram.svg"
       }
     ],
     "tabs": [
@@ -136,12 +136,12 @@
     "desc": "преподаватель по программированию",
     "links": [
       {
-        "href": "www.facebook.com",
-        "imagePath": "src/assets/icons/facebook-icon.svg"
+        "href": "https://www.facebook.com",
+        "imagePath": "/icons/facebook.svg"
       },
       {
         "href": "https://www.instagram.com",
-        "imagePath": "src/assets/icons/insta-icon.svg"
+        "imagePath": "/icons/instagram.svg"
       }
     ],
     "tabs": [
@@ -201,12 +201,12 @@
     "desc": "преподаватель по робототехнике",
     "links": [
       {
-        "href": "www.facebook.com",
-        "imagePath": "src/assets/icons/facebook-icon.svg"
+        "href": "https://www.facebook.com",
+        "imagePath": "/icons/facebook.svg"
       },
       {
         "href": "https://www.instagram.com",
-        "imagePath": "src/assets/icons/insta-icon.svg"
+        "imagePath": "/icons/instagram.svg"
       }
     ],
     "tabs": [
@@ -266,12 +266,12 @@
     "desc": "преподаватель по программированию",
     "links": [
       {
-        "href": "www.facebook.com",
-        "imagePath": "src/assets/icons/facebook-icon.svg"
+        "href": "https://www.facebook.com",
+        "imagePath": "/icons/facebook.svg"
       },
       {
         "href": "https://www.instagram.com",
-        "imagePath": "src/assets/icons/insta-icon.svg"
+        "imagePath": "/icons/instagram.svg"
       }
     ],
     "tabs": [
@@ -287,6 +287,13 @@
               "Факультет: Робототехники и информационных технологий",
               "Специальность: Программирование робототехнических систем",
               "Форма обучения: Очно-заочная"
+            ]
+          },
+          {
+            "title": "Курсы и тренинги",
+            "text": [
+              "Прошла курс 'Машинное обучение и искусственный интеллект' на платформе Coursera.",
+              "Приняла участие в тренинге по разработке робототехнических систем в Школе робототехники и автоматизации.Приняла участие в тренинге по разработке робототехнических систем в Школе робототехники и автоматизации.Приняла участие в тренинге по разработке робототехнических систем в Школе робототехники и автоматизации.Приняла участие в тренинге по разработке робототехнических систем в Школе робототехники и автоматизации."
             ]
           }
         ]

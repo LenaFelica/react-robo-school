@@ -11,26 +11,26 @@ export const Modal = ({ children, isOpen, onClose }) => {
   const { isMobile } = useWindowSize();
 
   useEffect(() => {
-    if (isOpen) lockScroll();
-    return unlockScroll;
+    if (isOpen) {
+      lockScroll();
+    }
   }, [isOpen]);
 
   if (!isOpen) {
     return null;
   }
 
-  const handleBackdropClick = (event) => {
-    if (event.target === event.currentTarget) {
-      onClose();
-    }
+  const handleModalClose = () => {
+    unlockScroll();
+    onClose();
   };
 
   return (
     <div className={styles.modal}>
-      <div className={styles.modalBackdrop} onClick={handleBackdropClick} />
+      <div className={styles.modalBackdrop} onClick={handleModalClose} />
       <div className={styles.modalContent}>
         {children}
-        <button className={styles.closeModalBtn} onClick={onClose}>
+        <button className={styles.closeModalBtn} onClick={handleModalClose}>
           {isMobile ? <CloseBlack /> : 'Закрыть'}
         </button>
       </div>

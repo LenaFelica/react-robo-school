@@ -9,7 +9,7 @@ import { TeacherModalContent } from './TeacherModalContent';
 import styles from './TeacherItem.module.scss';
 
 export const TeacherItem = ({ teacher }) => {
-  const { name, description, imageName } = teacher;
+  const { name, desc, imageName } = teacher;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleModalOpen = () => {
@@ -24,7 +24,7 @@ export const TeacherItem = ({ teacher }) => {
       <img src={teachersImages[imageName]} alt={name} />
       <div>
         <div className={styles.name}>{name}</div>
-        <div className={styles.description}>{description}</div>
+        <div className={styles.description}>{desc}</div>
         <Button className={styles.btn} variant="link" onClick={handleModalOpen}>
           Подробнее
         </Button>

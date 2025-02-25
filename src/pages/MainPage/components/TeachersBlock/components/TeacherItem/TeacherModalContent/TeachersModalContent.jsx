@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 
 import { teachersImages } from 'assets/images';
 
-import { Instagram } from 'assets/icons';
-import { Facebook } from 'assets/icons';
+import { SocialLinks } from './SocialLinks';
 
 import styles from './TeacherModalContent.module.scss';
 
@@ -14,7 +13,7 @@ export const TeacherModalContent = ({ teacher }) => {
     return <div>Учитель не найден</div>;
   }
 
-  const { name, desc, imageName, tabs } = teacher;
+  const { name, desc, imageName, tabs, links } = teacher;
 
   const createActiveTabClassname = (name) => {
     return `${styles.tabsMenuBtn} ${activeTab === name ? styles.active : ''}`;
@@ -36,22 +35,7 @@ export const TeacherModalContent = ({ teacher }) => {
         <div className={styles.contentTopInfo}>
           <h3 className={styles.contentTopInfoTitle}>{name}</h3>
           <p className={styles.contentTopInfoDesc}>{desc}</p>
-          <div className={styles.contentSocials}>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Instagram className={styles.socialIcon} />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Facebook className={styles.socialIcon} />
-            </a>
-          </div>
+          <SocialLinks links={links} />
         </div>
       </div>
 

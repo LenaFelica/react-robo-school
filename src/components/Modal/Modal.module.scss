@@ -22,38 +22,21 @@
 
   .modalContent {
     position: relative;
-    overflow-y: auto;
+    overflow-y: hidden;
     background-color: #fff;
     border-radius: 20px;
     text-align: left;
     padding: 40px;
     max-height: 90vh;
-    width: min(95%, 940px);
-    height: 770px;
+    max-width: 940px;
 
     .closeModalBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: absolute;
       right: 40px;
       top: 40px;
-
-      .closeModalBtnDesktop {
-        font-size: 18px;
-        line-height: 160%;
-        color: $text-color-primary-70;
-        width: auto;
-        height: auto;
-
-        &:hover {
-          color: $button-color-primary;
-        }
-      }
-
-      .closeMobileIcon {
-        display: none;
-        border-radius: 10px;
-        width: 44px;
-        height: 44px;
-      }
     }
   }
 }
@@ -62,22 +45,16 @@
   .modal {
     .modalContent {
       padding: 30px 20px;
+      max-width: 100%;
       height: 100%;
       width: 100%;
-      border-radius: 0;
       max-height: 100dvh;
+      border-radius: 0;
+      overflow-y: auto;
 
       .closeModalBtn {
-        right: 20px;
-        top: 20px;
-
-        .closeModalBtnDesktop {
-          display: none;
-        }
-
-        .closeMobileIcon {
-          display: flex;
-        }
+        right: 15px;
+        top: 15px;
       }
     }
   }

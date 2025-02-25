@@ -72,9 +72,8 @@
     }
 
     .contentBottomTabsContent {
-      position: relative;
       max-height: 340px;
-      overflow-y: scroll;
+      overflow-y: auto;
       padding-bottom: 25px;
 
       .tabContent {
@@ -119,11 +118,6 @@
         .contentTopInfoDesc {
           margin-top: 5px;
           font-size: 12px;
-        }
-
-        .contentSocials {
-          gap: 5px;
-          margin-top: 10px;
         }
       }
     }
