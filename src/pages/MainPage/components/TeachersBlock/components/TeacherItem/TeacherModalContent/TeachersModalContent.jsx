@@ -25,7 +25,7 @@ export const TeacherModalContent = ({ teacher }) => {
     tabs.find((tab) => tab.name === activeTab)?.data || [];
 
   return (
-    <div className={styles.modalContent}>
+    <div className={styles.teacherModalContent}>
       <div className={styles.contentTop}>
         <img
           className={styles.contentTopImg}

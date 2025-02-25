@@ -20,7 +20,7 @@ export const TeacherItem = ({ teacher }) => {
   };
 
   return (
-    <div className={styles.item}>
+    <div className={styles.teacherItem}>
       <img src={teachersImages[imageName]} alt={name} />
       <div>
         <div className={styles.name}>{name}</div>

@@ -1,6 +1,7 @@
 @use "src/styles/variables.scss" as *;
 
-.modalContent {
+.teacherModalContent {
+  max-width: 940px;
   .contentTop {
     display: flex;
     gap: 40px;
@@ -98,7 +99,7 @@
 }
 
 @media (max-width: 768px) {
-  .modalContent {
+  .teacherModalContent {
     .contentTop {
       gap: 20px;
 

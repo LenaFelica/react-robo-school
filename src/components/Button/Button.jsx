@@ -2,7 +2,13 @@ import React from 'react';
 
 import styles from './Button.module.scss';
 
-export const Button = ({ children, onClick, variant, additionalClassname }) => {
+export const Button = ({
+  children,
+  onClick,
+  variant,
+  additionalClassname,
+  rest,
+}) => {
   const createButtonVariant = () => {
     switch (true) {
       case variant === 'link':
@@ -25,7 +31,7 @@ export const Button = ({ children, onClick, variant, additionalClassname }) => {
   };
 
   return (
-    <button onClick={onClick} className={createButtonClassname()}>
+    <button onClick={onClick} className={createButtonClassname()} {...rest}>
       {children}
     </button>
   );
