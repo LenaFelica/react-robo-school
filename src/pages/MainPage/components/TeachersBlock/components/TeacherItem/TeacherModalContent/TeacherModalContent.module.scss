@@ -1,7 +1,8 @@
 @use "src/styles/variables.scss" as *;
 
 .teacherModalContent {
-  max-width: 940px;
+  max-width: 860px;
+  height: 690px;
   .contentTop {
     display: flex;
     gap: 40px;
@@ -105,12 +106,12 @@
 
       .contentTopImg {
         max-width: 100%;
-        min-width: 60px;
+        min-width: 40px;
         height: auto;
       }
 
       .contentTopInfo {
-        margin-top: 30px;
+        margin-top: 10px;
 
         .contentTopInfoTitle {
           font-size: 16px;
