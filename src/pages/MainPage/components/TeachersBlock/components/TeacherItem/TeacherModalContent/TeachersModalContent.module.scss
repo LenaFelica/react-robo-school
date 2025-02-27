@@ -1,0 +1,144 @@
+@use "src/styles/variables.scss" as *;
+
+.teacherModalContent {
+  max-width: 860px;
+  height: 690px;
+  .contentTop {
+    display: flex;
+    gap: 40px;
+
+    .contentTopImg {
+      width: 160px;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .contentTopInfo {
+      .contentTopInfoTitle {
+        font-size: 24px;
+        font-weight: 600;
+        color: $text-color-primary;
+      }
+
+      .contentTopInfoDesc {
+        margin-top: 10px;
+        font-size: 18px;
+        color: $text-color-primary-70;
+      }
+
+      .contentSocials {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .contentBottom {
+    margin-top: 40px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 98%;
+      height: 25px;
+      bottom: 0;
+      left: 0;
+      background-image: $bg-image-tabs;
+    }
+
+    .tabsMenu {
+      font-size: 20px;
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      position: relative;
+      border-bottom: 2px solid $hr-color;
+
+      .tabsMenuBtn {
+        color: $text-color-primary-70;
+        transition: color 0.1s ease;
+        padding: 15px 0;
+        width: 100%;
+        display: flex;
+
+        &:hover {
+          color: $text-color-primary;
+        }
+
+        &.active {
+          color: $button-color-primary;
+        }
+      }
+    }
+
+    .contentBottomTabsContent {
+      max-height: 340px;
+      overflow-y: auto;
+      padding-bottom: 25px;
+
+      .tabContent {
+        display: block;
+        padding: 6px 0;
+        border-top: none;
+
+        .tabContentInfo {
+          font-size: 20px;
+          line-height: 32px;
+        }
+
+        .tabContentTitle {
+          font-size: 24px;
+          font-weight: 600;
+          color: $text-color-primary;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .teacherModalContent {
+    .contentTop {
+      gap: 20px;
+
+      .contentTopImg {
+        max-width: 100%;
+        min-width: 40px;
+        height: auto;
+      }
+
+      .contentTopInfo {
+        margin-top: 10px;
+
+        .contentTopInfoTitle {
+          font-size: 16px;
+        }
+
+        .contentTopInfoDesc {
+          margin-top: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .contentBottom {
+      margin-top: 20px;
+      flex-grow: 1;
+
+      &::after {
+        content: none;
+      }
+
+      .tabsMenu {
+        display: none;
+      }
+
+      .contentBottomTabsContent {
+        max-height: unset;
+      }
+    }
+  }
+}

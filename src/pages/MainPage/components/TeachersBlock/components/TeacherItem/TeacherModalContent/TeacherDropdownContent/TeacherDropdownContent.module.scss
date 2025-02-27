@@ -1,0 +1,78 @@
+@use "src/styles/variables.scss" as *;
+
+.selectTeachers {
+  position: relative;
+  display: none;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: 30px;
+
+  .selectTeachersBtn {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #fff;
+    padding: 10px;
+    background-color: $bg-color-tertiary;
+    color: $text-color-secondary;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    z-index: 1;
+    gap: 10px;
+
+    &:hover {
+      background-color: lighten($bg-color-tertiary, 10%);
+    }
+
+    .arrow {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  .selectTeachersList {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+
+    &.active {
+      display: flex;
+    }
+
+    .selectTeachersListItem {
+      width: 100%;
+      padding: 10px;
+      background-color: $bg-color-tertiary;
+      color: $text-color-secondary;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #fff;
+      border-bottom: 0;
+
+      &.active {
+        background-color: $bg-color-tertiary-active;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .selectTeachers {
+    display: flex;
+
+    .selectTeachersBtn {
+      display: flex;
+    }
+
+    .selectTeachersList {
+      .selectTeachersListItem {
+        display: flex;
+      }
+    }
+  }
+}
