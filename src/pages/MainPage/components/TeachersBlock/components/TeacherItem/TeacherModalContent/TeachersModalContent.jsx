@@ -4,7 +4,8 @@ import { teachersImages } from 'assets/images';
 
 import { SocialLinks } from './SocialLinks';
 
-import styles from './TeacherModalContent.module.scss';
+import styles from './TeachersModalContent.module.scss';
+import { TeacherDropdownContent } from './TeacherDropdownContent';
 
 export const TeacherModalContent = ({ teacher }) => {
   const [activeTab, setActiveTab] = useState('education');
@@ -38,6 +39,12 @@ export const TeacherModalContent = ({ teacher }) => {
           <SocialLinks links={links} />
         </div>
       </div>
+
+      <TeacherDropdownContent
+        teacher={teacher}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
 
       <div className={styles.contentBottom}>
         <div className={styles.tabsMenu}>
