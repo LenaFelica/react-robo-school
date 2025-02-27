@@ -1,56 +1,56 @@
 @use "src/styles/variables.scss" as *;
 
 .teachers {
-   padding-bottom: 0;
+  padding-bottom: 0;
 
-   .wrapper {
-      .title {
-         font-size: 50px;
-         font-weight: 600;
+  .wrapper {
+    .title {
+      font-size: 50px;
+      font-weight: 600;
+    }
+
+    .list {
+      display: flex;
+      gap: 40px;
+      margin-top: 60px;
+      overflow-y: auto;
+
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
       }
-
-      .list {
-         display: flex;
-         gap: 40px;
-         margin-top: 60px;
-         overflow-y: auto;
-
-         -ms-overflow-style: none;
-         scrollbar-width: none;
-
-         &::-webkit-scrollbar {
-            display: none;
-         }
-      }
-   }
+    }
+  }
 }
 
 @media (max-width: 1024px) {
-   .teachers {
-      padding: 60px 0 0px 0;
-      .wrapper {
-         .title {
-            text-align: center;
-         }
+  .teachers {
+    padding: 60px 0 0px 0;
+    .wrapper {
+      .title {
+        text-align: center;
       }
-   }
+    }
+  }
 }
 
 @media (max-width: 768px) {
-   .teachers {
-      padding-top: 40px;
-      .wrapper {
-         .title {
-            font-size: 30px;
-         }
-
-         .list {
-            gap: 30px;
-            margin-top: 40px;
-            padding: 0 10px;
-            width: calc(100% + 20px);
-            margin-left: -10px;
-         }
+  .teachers {
+    padding-top: 40px;
+    .wrapper {
+      .title {
+        font-size: 30px;
       }
-   }
+
+      .list {
+        gap: 30px;
+        margin-top: 40px;
+        padding: 0 10px;
+        width: calc(100% + 20px);
+        margin-left: -10px;
+      }
+    }
+  }
 }

@@ -4,11 +4,9 @@
   max-width: 1200px;
 
   &.wide {
-   max-width: 1760px;
- }
+    max-width: 1760px;
+  }
 }
-
-
 
 @media screen and (max-width: 1024px) {
   .container {
