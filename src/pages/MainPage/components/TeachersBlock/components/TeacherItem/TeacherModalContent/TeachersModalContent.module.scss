@@ -34,6 +34,13 @@
     }
   }
 
+  .mobileSelect {
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .contentBottom {
     margin-top: 40px;
     position: relative;
@@ -122,6 +129,10 @@
           font-size: 12px;
         }
       }
+    }
+
+    .mobileSelect {
+      display: flex;
     }
 
     .contentBottom {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 
 import { Button } from 'components/Button';
 import { teachersImages } from 'assets/images';
@@ -8,7 +8,7 @@ import { TeacherModalContent } from './TeacherModalContent';
 
 import styles from './TeacherItem.module.scss';
 
-export const TeacherItem = ({ teacher }) => {
+export const TeacherItem = memo(({ teacher }) => {
   const { name, desc, imageName } = teacher;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -34,4 +34,4 @@ export const TeacherItem = ({ teacher }) => {
       </Modal>
     </div>
   );
-};
+});

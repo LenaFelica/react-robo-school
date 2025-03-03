@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
+import { Select } from 'components/Select';
+
 import { teachersImages } from 'assets/images';
 
 import { SocialLinks } from './SocialLinks';
 
 import styles from './TeachersModalContent.module.scss';
-import { TeacherDropdownContent } from './TeacherDropdownContent';
 
 export const TeacherModalContent = ({ teacher }) => {
   const [activeTab, setActiveTab] = useState('education');
@@ -16,6 +17,11 @@ export const TeacherModalContent = ({ teacher }) => {
 
   const { name, desc, imageName, tabs, links } = teacher;
 
+  const options = tabs.map(({ name, title }) => ({
+    value: name,
+    label: title,
+  }));
+
   const createActiveTabClassname = (name) => {
     return `${styles.tabsMenuBtn} ${activeTab === name ? styles.active : ''}`;
   };
@@ -24,6 +30,10 @@ export const TeacherModalContent = ({ teacher }) => {
 
   const activeTabContent =
     tabs.find((tab) => tab.name === activeTab)?.data || [];
+
+  const handleTabChange = (value) => {
+    setActiveTab(value);
+  };
 
   return (
     <div className={styles.teacherModalContent}>
@@ -40,11 +50,13 @@ export const TeacherModalContent = ({ teacher }) => {
         </div>
       </div>
 
-      <TeacherDropdownContent
-        teacher={teacher}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-      />
+      <div className={styles.mobileSelect}>
+        <Select
+          options={options}
+          value={activeTab}
+          onChange={handleTabChange}
+        />
+      </div>
 
       <div className={styles.contentBottom}>
         <div className={styles.tabsMenu}>
