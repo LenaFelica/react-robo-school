@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Select } from 'components/Select';
 
@@ -9,8 +9,6 @@ import { SocialLinks } from './SocialLinks';
 import styles from './TeachersModalContent.module.scss';
 
 export const TeacherModalContent = ({ teacher }) => {
-  const [activeTab, setActiveTab] = useState('education');
-
   if (!teacher) {
     return <div>Учитель не найден</div>;
   }
@@ -22,18 +20,24 @@ export const TeacherModalContent = ({ teacher }) => {
     label: title,
   }));
 
+  const [activeTab, setActiveTab] = useState(options[0] || null);
+  const [activeTabContent, setActiveTabContent] = useState(tabs[0]?.data || []);
+
+  useEffect(() => {
+    if (!activeTab) {
+      return;
+    }
+    const newTabContent = tabs.find((tab) => tab.name === activeTab.value);
+    if (newTabContent) {
+      setActiveTabContent(newTabContent.data);
+    }
+  }, [activeTab, tabs]);
+
   const createActiveTabClassname = (name) => {
-    return `${styles.tabsMenuBtn} ${activeTab === name ? styles.active : ''}`;
+    return `${styles.tabsMenuBtn} ${activeTab?.value === name ? styles.active : ''}`;
   };
 
-  const createTabClickHandler = (name) => () => setActiveTab(name);
-
-  const activeTabContent =
-    tabs.find((tab) => tab.name === activeTab)?.data || [];
-
-  const handleTabChange = (value) => {
-    setActiveTab(value);
-  };
+  const createTabClickHandler = (option) => () => setActiveTab(option);
 
   return (
     <div className={styles.teacherModalContent}>
@@ -51,23 +55,19 @@ export const TeacherModalContent = ({ teacher }) => {
       </div>
 
       <div className={styles.mobileSelect}>
-        <Select
-          options={options}
-          value={activeTab}
-          onChange={handleTabChange}
-        />
+        <Select options={options} value={activeTab} onChange={setActiveTab} />
       </div>
 
       <div className={styles.contentBottom}>
         <div className={styles.tabsMenu}>
-          {tabs.map(({ name, title }) => (
+          {options.map((option) => (
             <button
-              key={name}
+              key={option.value}
               type="button"
-              className={createActiveTabClassname(name)}
-              onClick={createTabClickHandler(name)}
+              className={createActiveTabClassname(option.value)}
+              onClick={createTabClickHandler(option)}
             >
-              {title}
+              {option.label}
             </button>
           ))}
         </div>

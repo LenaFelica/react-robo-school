@@ -11,16 +11,15 @@ export const Select = ({ options, value, onChange }) => {
   const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
 
-  const selectedOption = options.find((option) => option.value === value);
-  const defaultLabel = options[0]?.label;
+  const selectedOption = value;
 
   const openDropdown = () => setIsDropdownOpen(true);
   const closeDropdown = () => setIsDropdownOpen(false);
 
   const handleButtonClick = isDropdownOpen ? closeDropdown : openDropdown;
 
-  const handleOptionClick = (optionValue) => {
-    onChange(optionValue);
+  const handleOptionClick = (option) => {
+    onChange(option);
     closeDropdown();
   };
 
@@ -39,7 +38,7 @@ export const Select = ({ options, value, onChange }) => {
         onClick={handleButtonClick}
         ref={buttonRef}
       >
-        <span>{selectedOption ? selectedOption.label : defaultLabel}</span>
+        <span>{selectedOption ? selectedOption.label : options[0]?.label}</span>
         <ArrowDown className={styles.arrow} />
       </button>
 
@@ -50,7 +49,7 @@ export const Select = ({ options, value, onChange }) => {
               <button
                 type="button"
                 className={styles.selectOption}
-                onClick={() => handleOptionClick(option.value)}
+                onClick={() => handleOptionClick(option)}
               >
                 {option.label}
               </button>
