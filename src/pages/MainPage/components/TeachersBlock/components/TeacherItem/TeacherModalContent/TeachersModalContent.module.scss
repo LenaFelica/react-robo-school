@@ -34,13 +34,6 @@
     }
   }
 
-  .mobileSelect {
-    width: 100%;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .contentBottom {
     margin-top: 40px;
     position: relative;
@@ -53,31 +46,6 @@
       bottom: 0;
       left: 0;
       background-image: $bg-image-tabs;
-    }
-
-    .tabsMenu {
-      font-size: 20px;
-      display: flex;
-      justify-content: flex-start;
-      width: 100%;
-      position: relative;
-      border-bottom: 2px solid $hr-color;
-
-      .tabsMenuBtn {
-        color: $text-color-primary-70;
-        transition: color 0.1s ease;
-        padding: 15px 0;
-        width: 100%;
-        display: flex;
-
-        &:hover {
-          color: $text-color-primary;
-        }
-
-        &.active {
-          color: $button-color-primary;
-        }
-      }
     }
 
     .contentBottomTabsContent {
@@ -131,20 +99,12 @@
       }
     }
 
-    .mobileSelect {
-      display: flex;
-    }
-
     .contentBottom {
       margin-top: 20px;
       flex-grow: 1;
 
       &::after {
         content: none;
-      }
-
-      .tabsMenu {
-        display: none;
       }
 
       .contentBottomTabsContent {

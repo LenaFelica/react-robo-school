@@ -8,26 +8,34 @@ import styles from './Select.module.scss';
 
 export const Select = ({ options, value, onChange }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const dropdownRef = useRef(null);
-  const buttonRef = useRef(null);
 
-  const selectedOption = value;
+  const handleDropdownOpen = () => {
+    setIsDropdownOpen(true);
+  };
 
-  const openDropdown = () => setIsDropdownOpen(true);
-  const closeDropdown = () => setIsDropdownOpen(false);
+  const handleDropdownClose = () => {
+    setIsDropdownOpen(false);
+  };
 
-  const handleButtonClick = isDropdownOpen ? closeDropdown : openDropdown;
+  const handleButtonClick = () => {
+    if (!isDropdownOpen) {
+      handleDropdownOpen();
+      return;
+    }
+    handleDropdownClose();
+  };
 
   const handleOptionClick = (option) => {
     onChange(option);
-    closeDropdown();
+    handleDropdownClose();
   };
 
   useOutsideClick({
     ref: dropdownRef,
-    handler: closeDropdown,
-    condition: isDropdownOpen,
-    exceptElementRef: buttonRef,
+    handler: handleDropdownClose,
+    condition: handleDropdownOpen,
   });
 
   return (
@@ -36,9 +44,8 @@ export const Select = ({ options, value, onChange }) => {
         type="button"
         className={styles.selectButton}
         onClick={handleButtonClick}
-        ref={buttonRef}
       >
-        <span>{selectedOption ? selectedOption.label : options[0]?.label}</span>
+        <span>{value ? value.label : options[0]?.label}</span>
         <ArrowDown className={styles.arrow} />
       </button>
 
