@@ -1,28 +1,47 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { Select } from 'components/Select';
+import { useWindowSize } from 'hooks/useWindowSize';
 
 import { teachersImages } from 'assets/images';
 
 import { SocialLinks } from './SocialLinks';
+import { TabButtons } from './TabButtons';
 
-import styles from './TeacherModalContent.module.scss';
+import styles from './TeachersModalContent.module.scss';
 
 export const TeacherModalContent = ({ teacher }) => {
-  const [activeTab, setActiveTab] = useState('education');
+  const { isMobile } = useWindowSize();
+  const { name, desc, imageName, tabs, links } = teacher;
+
+  const createTabOptions = () => {
+    return tabs.map(({ name, title }) => ({
+      value: name,
+      label: title,
+    }));
+  };
+
+  const [options] = useState(() => createTabOptions());
+  const [activeTab, setActiveTab] = useState(options[0] || null);
+  const [activeTabContent, setActiveTabContent] = useState(tabs[0]?.data || []);
+
+  const handleTabChange = (option) => {
+    setActiveTab(option);
+  };
+
+  useEffect(() => {
+    if (!activeTab) {
+      return;
+    }
+    const newTabContent = tabs.find((tab) => tab.name === activeTab.value);
+    if (newTabContent) {
+      setActiveTabContent(newTabContent.data);
+    }
+  }, [activeTab, tabs]);
 
   if (!teacher) {
     return <div>Учитель не найден</div>;
   }
-
-  const { name, desc, imageName, tabs, links } = teacher;
-
-  const createActiveTabClassname = (name) => {
-    return `${styles.tabsMenuBtn} ${activeTab === name ? styles.active : ''}`;
-  };
-
-  const createTabClickHandler = (name) => () => setActiveTab(name);
-
-  const activeTabContent =
-    tabs.find((tab) => tab.name === activeTab)?.data || [];
 
   return (
     <div className={styles.teacherModalContent}>
@@ -40,18 +59,20 @@ export const TeacherModalContent = ({ teacher }) => {
       </div>
 
       <div className={styles.contentBottom}>
-        <div className={styles.tabsMenu}>
-          {tabs.map(({ name, title }) => (
-            <button
-              key={name}
-              type="button"
-              className={createActiveTabClassname(name)}
-              onClick={createTabClickHandler(name)}
-            >
-              {title}
-            </button>
-          ))}
-        </div>
+        {isMobile ? (
+          <Select
+            options={options}
+            value={activeTab}
+            onChange={handleTabChange}
+          />
+        ) : (
+          <TabButtons
+            options={options}
+            activeTab={activeTab}
+            handleTabChange={handleTabChange}
+          />
+        )}
+
         <div className={styles.contentBottomTabsContent}>
           {activeTabContent.map((content, index) => {
             return (

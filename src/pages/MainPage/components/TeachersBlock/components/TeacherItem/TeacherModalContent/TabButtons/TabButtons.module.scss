@@ -1,0 +1,25 @@
+@use "src/styles/variables.scss" as *;
+
+.tabsMenu {
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  border-bottom: 2px solid $hr-color;
+
+  .tabsMenuBtn {
+    color: $text-color-primary-70;
+    transition: color 0.1s ease;
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+
+    &:hover {
+      color: $text-color-primary;
+    }
+
+    &.active {
+      color: $button-color-primary;
+    }
+  }
+}

@@ -48,31 +48,6 @@
       background-image: $bg-image-tabs;
     }
 
-    .tabsMenu {
-      font-size: 20px;
-      display: flex;
-      justify-content: flex-start;
-      width: 100%;
-      position: relative;
-      border-bottom: 2px solid $hr-color;
-
-      .tabsMenuBtn {
-        color: $text-color-primary-70;
-        transition: color 0.1s ease;
-        padding: 15px 0;
-        width: 100%;
-        display: flex;
-
-        &:hover {
-          color: $text-color-primary;
-        }
-
-        &.active {
-          color: $button-color-primary;
-        }
-      }
-    }
-
     .contentBottomTabsContent {
       max-height: 340px;
       overflow-y: auto;
@@ -130,10 +105,6 @@
 
       &::after {
         content: none;
-      }
-
-      .tabsMenu {
-        display: none;
       }
 
       .contentBottomTabsContent {
